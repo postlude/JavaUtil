@@ -4,7 +4,7 @@ public class Combination {
 	public static void main(String[] args) {
 		Combination combination = new Combination();
 		
-		System.out.println(combination.calcCombination(15, 9));
+		System.out.println(combination.calcCombination(15, 7));
 	}
 	
 	/**
