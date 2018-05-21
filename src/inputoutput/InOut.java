@@ -55,7 +55,6 @@ public class InOut {
 			){
 			String input = br2.readLine();
 			int input2 = Integer.parseInt(br2.readLine());
-			
 			bw2.write(input + "\n");
 			
 			// string 형태로 출력해야 제대로된 숫자값이 나옴
