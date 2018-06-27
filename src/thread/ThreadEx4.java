@@ -1,35 +1,7 @@
 package thread;
 
-public class ThreadEx4 implements Runnable{
-	private int num;
-	public static int STATIC_NUM = 0;
-	
-	public ThreadEx4(int num) {
-		this.num = num;
-	}
-	
-	@Override
-	public void run() {
-		System.out.println(num + " thread start");
-		
-		ThreadEx4.staticMethod(num);
-		
-		System.out.println(num + " thread end");
-	}
-	
-	public static synchronized void staticMethod(int threadNum) {
-		ThreadEx4.STATIC_NUM++;
-		System.out.println(threadNum + " thread / static num : " + ThreadEx4.STATIC_NUM);
-	}
-	
+public class ThreadEx4{
 	public static void main(String[] args) {
-//		int count = 10;
-//		
-//		for(int index=0; index<count; index++) {
-//			Runnable runnable = new ThreadEx4(index+1);
-//			Thread thread = new Thread(runnable);
-//			thread.start();
-//		}
 		
 		WorkObject workObject = new WorkObject();
 		 
