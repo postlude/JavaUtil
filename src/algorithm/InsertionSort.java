@@ -3,11 +3,13 @@ package algorithm;
 import java.util.Arrays;
 
 public class InsertionSort {
+	// 오름차순 정렬
 	public void sort(int[] ary) {
 		for(int sortIndex=1; sortIndex<ary.length; sortIndex++) {
 			int swapIndex = -1;
 			int swapNum = ary[sortIndex];
 			
+			// 루프 돌면서 sortIndex에 있는 값의 위치를 찾아 swap
 			for(int compareIndex=sortIndex-1; compareIndex>=0; compareIndex--) {
 				if(swapNum < ary[compareIndex]) {
 					swapIndex = compareIndex;
