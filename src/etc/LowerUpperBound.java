@@ -1,4 +1,4 @@
-package method.etc;
+package etc;
 
 public class LowerUpperBound {
 

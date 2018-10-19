@@ -1,4 +1,4 @@
-package combination;
+package etc;
 
 public class Combination {
 	public static void main(String[] args) {

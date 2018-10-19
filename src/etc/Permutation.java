@@ -1,6 +1,4 @@
-package permutation;
-
-import method.arraylist.ArrayMethod;
+package etc;
 
 public class Permutation {
 
