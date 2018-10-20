@@ -8,13 +8,13 @@ public class Sort {
 		Sort sort = new Sort();
 		
 //		int[] ary = {2, 7, 1, 4, 7, 10};
-		int[] ary = {10, 4, 5, 1, 2, 7, 7};
+		int[] ary = {5, 4, 10, 2, 1, 7, 7};
 		
 //		sort.bubbleSort(ary);
 //		sort.insertionSort(ary);
 //		sort.selectionSort(ary);
-//		sort.quickSort(ary, 0, ary.length-1);
-		sort.sort(ary, 0, ary.length-1);
+		sort.quickSort(ary, 0, ary.length-1);
+//		sort.sort(ary, 0, ary.length-1);
 //		System.out.println(Arrays.toString(ary));
 	}
 
@@ -103,7 +103,12 @@ public class Sort {
 		int pivotIndex = (left + right) / 2;
 		int pivot = ary[pivotIndex];
 		
-		while(left < right) {
+		// 등호가 있는 이유는 아래에 재귀호출 시 동일한 값을 가지고 계속 호출되기 때문에  left, right를 다른 값으로 바꿔줘야한다.
+		// ex) [1, 2, 3 ...]
+		// start:2, end:3 일 경우 재귀 호출 전 left, right가 동일하게 2
+		// quickSort(ary, 2, 2); => 종료
+		// quickSort(ary, 2, 3); => 동일한 값으로 호출 => 무한 반복
+		while(left <= right) {
 			while(ary[left] < pivot) {
 				left++;
 			}
@@ -111,12 +116,14 @@ public class Sort {
 				right--;
 			}
 			
-			if(left < right) {
+			// 마찬가지로 같을 때 swap은 의미없지만, left, right를 진행시키기 위해 등호 필요
+			if(left <= right) {
 				// swap
 				int temp = ary[left];
 				ary[left] = ary[right];
 				ary[right] = temp;
 				
+				// 등호를 없애고 아래 코드를 if밖으로 빼면 이미 right, left 순서가 역전된 상황에서도 left, right를 한번 씩 더 진행시키므로 오류
 				left++;
 				right--;
 			}
@@ -125,35 +132,9 @@ public class Sort {
 		System.out.println(Arrays.toString(ary));
 //		System.out.println(left);
 //		System.out.println(right);
-		quickSort(ary, start, left-1);
+		quickSort(ary, start, right);
 		quickSort(ary, left, end);
 	}
-	
-	public void sort(int[] data, int start, int end){
-        int left = start;
-        int right = end;
-        int pivot = data[(start+end)/2];
-        
-        do{
-            while(data[left] < pivot) left++;
-            while(data[right] > pivot) right--;
-            if(left <= right){    
-                int temp = data[left];
-                data[left] = data[right];
-                data[right] = temp;
-                left++;
-                right--;
-            }
-        }while (left <= right);
-        
-        System.out.println(left);
-        System.out.println(right);
-        System.out.println(Arrays.toString(data));
-        if(start < right) sort(data, start, right);
-        if(end > left) sort(data, left, end);
-    }
-
-
 	
 //	public int partition(int[] ary, int left, int right) {
 //		
