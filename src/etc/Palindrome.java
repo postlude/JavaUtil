@@ -1,4 +1,4 @@
-package method.string;
+package etc;
 
 public class Palindrome {
 
