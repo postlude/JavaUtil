@@ -4,11 +4,10 @@ public class Permutation {
 
 	public static void main(String[] args) {
 		Permutation permutation = new Permutation();
-		ArrayMethod arrayMethod = new ArrayMethod();
 		
-		int[] testAry1 = {3, 2, 2, 1};
-		if(permutation.nextPermutation(testAry1)) {
-			arrayMethod.printArray(testAry1);
+		int[] ary = {3, 2, 2, 1};
+		if(permutation.nextPermutation(ary)) {
+			Print.printAry(ary, true);
 		}else {
 			System.out.println("last permutation");
 		}

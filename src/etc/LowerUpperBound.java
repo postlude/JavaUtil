@@ -22,7 +22,7 @@ public class LowerUpperBound {
 	}
 
 	/**
-	 * 배열에서 target에 해당하는 lower bount index 구하는 메소드
+	 * 배열에서 target에 해당하는 lower bound index 구하는 메소드
 	 * @param ary
 	 * @param target
 	 * @return lower bound index
